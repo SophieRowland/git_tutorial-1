@@ -5,9 +5,10 @@
 
 **Have to run before using Metaphlan2**
 
-`$ export PATH=$PATH:~/biobakery-metaphlan2-e7761e78f362/`  
-`$ export PATH=$PATH:~/biobakery-metaphlan2-e7761e78f362/utils/`  
-`$ chmod +x ~/biobakery-metaphlan2-e7761e78f362/`  
+`$ export PATH=$PATH:~/software/metaphlan2/`  
+`$ export PATH=$PATH:~/software/metaphlan2/utils/`  
+`$ chmod +x ~/software/metaphlan2/`  
+      *Changed location & name of metaphlan2 folder (6/26/18)*
 `$ which metaphlan2.py`  
     `/Users/sophierowland/biobakery-metaphlan2-e7761e78f362//metaphlan2.py`  
 `$ metaphlan2.py -h`
@@ -74,6 +75,7 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
 
 ## Run on multiple cores
 *What does "multiple cores" mean?*
+    * As defined by Kevin: "Most modern computers have multiple cores (often 4, hence "quadcore") on their processors. Certain calculations can be run in parallel, and adding additional cores allows those steps to run faster, since you're doing multiple things at once and then combining the results. On a compute grid, you can get even more processes going at once."
 
 `$ metaphlan2.py SRS014459-Stool.fasta.gz --input_type fasta --nproc 4 > SRS014459-Stool_profile.txt`
 
@@ -134,7 +136,7 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
 # Visualize results
 
 ## Create a heatmap with hclust2
-* hclust2 = plotting tool
+* hclust2 = hierarchical clustering tool, allows for plotting
 
 #### Install hclust2
 `$ brew tap biobakery/biobakery`
@@ -154,6 +156,8 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
     * `grep -v "t__"`
 3. sed: Removes full taxonomy, printing only species name
     * `sed 's/^.*s__//g'`
+
+**regexr.com**: cheatsheets for regular expressions
 
 ### Step 2: Generate the Heatmap
 `$ hclust2.py -i merged_abundance_table_species.txt -o abundance_heatmap_species.png --ftop 25 --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 6 --slabel_size 6 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300`
@@ -225,6 +229,8 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
 * Select minimum value to display as 0.1 = `--minv 0.1`
 * Select an image resolution of 300 = `--dpi 300`
 
+![My Heatmap](graphics/sophie_heatmap_species.png)
+
 ## Create a cladogram with graphlan
 * Took a break from heatmap, too frustrating
 
@@ -243,9 +249,10 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
 
 #### Solution:
 
-`$ export PATH=$PATH:~/graphlan_commit_edea23c/`  
-`$ export PATH=$PATH:~/graphlan_commit_edea23c/export2graphlan/`  
-`$ chmod +x ~/graphlan_commit_edea23c/`
+`$ export PATH=$PATH:~/software/graphlan/`  
+`$ export PATH=$PATH:~/software/graphlan/export2graphlan`  
+`$ chmod +x ~/software/graphlan/`
+    *Changed location & name of graphlan folder (6/26/18)*
 
 * Install with conda?
 
@@ -272,7 +279,8 @@ HTTP errors are often intermittent, and a simple retry will get you on your way.
 `$ export PATH=$PATH:~/graphlan_commit_edea23c/`  
 `$ export PATH=$PATH:~/graphlan_commit_edea23c/export2graphlan/`  
 `$ chmod +x ~/graphlan_commit_edea23c/`
-
+    *Above has correct location (as of 6/26/18)*
+    
 **It worked!**
 
 #### What's happening in this code?
@@ -296,6 +304,10 @@ HTTP errors are often intermittent, and a simple retry will get you on your way.
 #### What's happening in this code?
 1. First command - creating an xml file from tree and annotation inputs
 2. Second command - creates image, sets resolution `--dpi 300`, requests external legends `--external_legends`
+
+![My Cladogram](graphics/sophie_cladogram.png)
+![Cladogram legend](graphics/sophie_cladogram_legend.png)
+![Cladogram annotation](graphics/sophie_cladogram_annot.png)
 
 ## Create a strain-level marker-based heatmap (Panphlan)
 * Panphlan - ID, track, phylogenetically place individual strains from metagenomes
@@ -334,3 +346,5 @@ HTTP errors are often intermittent, and a simple retry will get you on your way.
 `$ hclust2.py -i siraeum_tracker.txt -o siraeum_tracker.png --skip_rows 1 --f_dist_f hamming --no_flabels --dpi 300 --cell_aspect_ratio 0.01`
 
 * Success with no errors!
+
+![My Strain-level Marker-based Heatmap](graphics/panphlan_siraeum_tracker.png)

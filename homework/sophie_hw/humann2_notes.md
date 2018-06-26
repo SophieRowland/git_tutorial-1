@@ -79,14 +79,18 @@ Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo
 * Test local HUMAnN2 environment `$ humann2_test`
     * Doesn't match abbrev. version on tutorial but looks ok
 
+**Maybe open an issue on humann2 repo**
+
 ### Install Metaphlan2
-`$ export PATH=$PATH:~/biobakery-metaphlan2-e7761e78f362/`  
-`$ export PATH=$PATH:~/biobakery-metaphlan2-e7761e78f362/utils/`  
-`$ chmod +x ~/biobakery-metaphlan2-e7761e78f362/`
+`$ export PATH=$PATH:~/software/metaphlan2/`  
+`$ export PATH=$PATH:~/software/metaphlan2/utils/`  
+`$ chmod +x ~/software/metaphlan2/`  
+      *Changed location & name of metaphlan2 folder (6/26/18)*
 
 ## Metagenome functional profiling
 
 *Note:* To view .tsv files like more Excel files use `column -t -s $'\t' file.tsv | less -S`
+    * '$ alias tsview = "column -t -s $'\t' file.tsv | less -S"'
 
 ### HUMAnN2 input formats
 * Acceptable input file types:
