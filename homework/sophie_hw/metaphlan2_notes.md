@@ -1,4 +1,4 @@
-# Metaphlan2 tutorial
+# [Metaphlan2 tutorial](https://bitbucket.org/biobakery/biobakery/wiki/metaphlan2)
 
 ## Install Metaphlan2
 * Moved folder to ~/biobakery-metaphlan2-e7761e78f362/
@@ -280,7 +280,7 @@ HTTP errors are often intermittent, and a simple retry will get you on your way.
 `$ export PATH=$PATH:~/graphlan_commit_edea23c/export2graphlan/`  
 `$ chmod +x ~/graphlan_commit_edea23c/`
     *Above has correct location (as of 6/26/18)*
-    
+
 **It worked!**
 
 #### What's happening in this code?

@@ -1,4 +1,4 @@
-# Humann2 tutorial
+# [Humann2 tutorial](https://bitbucket.org/biobakery/biobakery/wiki/humann2)
 
 **HUMAnN2**: HMP Unified Metabolic Analysis Network
 * Tool for determining presence, absence, and abundance of metabolic pathways from metagenomic data
