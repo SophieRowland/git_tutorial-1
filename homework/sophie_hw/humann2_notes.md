@@ -55,13 +55,17 @@ Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo
 3. Retry `$ brew install humann2`
   * **Same error message**
 
-* With pip
+* With pip - doesn't seem to have worked
 `$ pip install humann2`
     * What's with msgpack?
     `Successfully built humann2
     distributed 1.21.8 requires msgpack, which is not installed.
     Installing collected packages: humann2
     Successfully installed humann2-0.11.1`
+
+    '$ pip install msgpack'  
+    '$ pip install humann2'  
+        'Requirement already satisfied: humann2 in /anaconda3/lib/python2.7/site-packages (0.11.1)'
 
 [HUMAnN2 User Manual](https://bitbucket.org/biobakery/humann2/wiki/Home)
 
@@ -90,7 +94,8 @@ Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo
 ## Metagenome functional profiling
 
 *Note:* To view .tsv files like more Excel files use `column -t -s $'\t' file.tsv | less -S`
-    * '$ alias tsview = "column -t -s $'\t' file.tsv | less -S"'
+    * 'alias tsview = "column -t -s $'\t' file.tsv | less -S"'
+        *How do you execute this command?*
 
 ### HUMAnN2 input formats
 * Acceptable input file types:
@@ -115,3 +120,5 @@ Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo
 `CRITICAL ERROR: The diamond executable can not be found. Please check the install.`
 
 So...the installation was not successful.
+  * Posted to HUMAnN Users Google Group on 6/26/18
+  
