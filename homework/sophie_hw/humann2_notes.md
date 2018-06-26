@@ -29,6 +29,32 @@ error: library dfftpack has Fortran sources but no Fortran compiler found`
 
 *Curse you Fortran!*
 
+* Xcode does not include a Fortran compiler
+* [gfortran maintainers](https://gcc.gnu.org/wiki/GFortranBinaries#MacOS)
+    * Download and install gfortran 6.3
+    * Retry `$ brew install humann2`
+    * Didn't work
+* [Alternative gfortran downloads for Mac](http://hpc.sourceforge.net/)
+* Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo/cheminfoMac.php)
+
+#### Trying to install Fortran compiler
+Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo/cheminfoMac.php)
+1. Installing relevant packages
+  `$ brew install pkg-config`  
+  `$ brew install subversion`  
+  `$ brew install gcc` - already installed  
+  `$ brew install boost --build-from-source`  
+    * Taking a *really long* time
+      * 23 minutes 21 seconds, to be exact
+  `$ brew install tcl-tk`
+2. Check for gfortran (as part of gcc)
+  `$ man -k fortran`  
+      `gfortran(1) - GNU Fortran compiler`  
+  `$ which gfortran`
+      `/usr/local/bin/gfortran`
+3. Retry `$ brew install humann2`
+  * **Same error message**
+
 * With pip
 `$ pip install humann2`
     * What's with msgpack?
@@ -38,6 +64,9 @@ error: library dfftpack has Fortran sources but no Fortran compiler found`
     Successfully installed humann2-0.11.1`
 
 [HUMAnN2 User Manual](https://bitbucket.org/biobakery/humann2/wiki/Home)
+
+* `$ brew install humann2 --without-dependencies`
+    * Same error message...
 
 **Note:** HUMAnN2 will require full nucleotide or amino acid search databases (not used in this tutorial)
 * Chocophlan - nucleotides

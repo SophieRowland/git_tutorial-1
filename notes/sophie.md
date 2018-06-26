@@ -118,7 +118,7 @@ OR
 2. Clone onto your computer
   * `git clone {insert url here}`
 
-## General Work Flow
+## **General Work Flow**
 1. Make a branch  
       `$ git checkout -b {new_branch}`
 2. Commit to branch  

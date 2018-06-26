@@ -117,7 +117,7 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
 `$ mv ~/SRS*.fasta.gz ~/gitrepos/metaphlan_tutorial`
 *Only necessary if dir not ~/gitrepos/metaphlan_tutorial*
 
-## Run multiple Samples
+## Run multiple samples
 `$ metaphlan2.py SRS014464-Anterior_nares.fasta.gz --input_type fasta --nproc 4 > SRS014464-Anterior_nares_profile.txt`  
 
 `$ metaphlan2.py SRS014470-Tongue_dorsum.fasta.gz --input_type fasta --nproc 4 > SRS014470-Tongue_dorsum_profile.txt`
@@ -131,7 +131,7 @@ OSError: fatal error running '/Users/sophierowland/biobakery-metaphlan2-e7761e78
 
 `$ less -S merged_abundance_table.txt` :q
 
-# Vistualiza results
+# Visualize results
 
 ## Create a heatmap with hclust2
 * hclust2 = plotting tool
