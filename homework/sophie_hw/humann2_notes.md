@@ -121,4 +121,30 @@ Following instructions on [this page](https://www.macinchem.org/reviews/cheminfo
 
 So...the installation was not successful.
   * Posted to HUMAnN Users Google Group on 6/26/18
-  
+
+#### Response from Lauren McIver
+Hi Sophie - It looks like you are using conda with humann2. I believe the latest pip installed with conda installs packages from wheels instead of source. If humann2 is installed from source it will also install its dependencies. You can request pip install packages from source by adding the option "--no-binary :all:". Reinstalling humann2 with this option should also install the dependencies.
+
+I am sorry you had issues installing humann2 with homebrew. The humann2 formula also installs numpy (from source) which requires a fortran compiler. If you already have numpy installed you can bypass this by adding the option "--without-dependencies" (to bypass installing numpy). This should resolve the error you are seeing.
+
+Thanks!
+
+**pip install trouble shooting**  
+'$ pip install humann2 --no-binary :all:'  
+'Requirement already satisfied: humann2 in /anaconda3/lib/python2.7/site-packages (0.11.1)'
+    * Re-run `$ humann2 --input demo.fastq --output demo_fastq`
+      'CRITICAL ERROR: The diamond executable can not be found. Please check the install.'
+* Deleted humann2 folders from anaconda3/lib/python2.7/site-packages/
+* Re-install '$ pip install humann2 --no-binary :all:'  
+'Successfully installed humann2-0.11.1'
+    * Re-run `$ humann2 --input demo.fastq --output demo_fastq`
+      'CRITICAL ERROR: The diamond executable can not be found. Please check the install.'
+
+* '$ conda install humann2' ?
+'PackagesNotFoundError: The following packages are not available from current channels:
+
+  - humann2'
+
+**Homebrew install trouble shooting**  
+'$ brew install humann2 --without-dependencies'
+* Same error message :(
